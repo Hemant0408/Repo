@@ -1,6 +1,7 @@
 package com.test;
 
 import android.content.Context;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -24,11 +25,13 @@ public class AdvertiseAdapter extends RecyclerView.Adapter<AdvertiseAdapter.MyVi
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView tv_title;
         public ImageView iv_image;
+        public CardView cv;
 
         public MyViewHolder(View view) {
             super(view);
             tv_title = (TextView) view.findViewById(R.id.tv_title);
             iv_image = (ImageView) view.findViewById(R.id.iv_image);
+            cv = (CardView) view.findViewById(R.id.cv);
         }
     }
 
@@ -52,11 +55,13 @@ public class AdvertiseAdapter extends RecyclerView.Adapter<AdvertiseAdapter.MyVi
         if (!TextUtils.isEmpty(advertise.getTitle())) {
             holder.iv_image.setVisibility(View.VISIBLE);
             holder.tv_title.setVisibility(View.VISIBLE);
+            holder.cv.setVisibility(View.VISIBLE);
             holder.tv_title.setText(advertise.getTitle());
             Picasso.with(context).load(advertise.getUri()).into(holder.iv_image);
         } else {
             holder.iv_image.setVisibility(View.GONE);
             holder.tv_title.setVisibility(View.GONE);
+            holder.cv.setVisibility(View.GONE);
         }
     }
 

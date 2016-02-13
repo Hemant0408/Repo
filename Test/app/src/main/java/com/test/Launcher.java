@@ -66,10 +66,10 @@ public class Launcher extends AppCompatActivity {
 
             try {
                 // 2 second pause.
-                while (MyProgress < 20) {
+                while (MyProgress < 50) {
                     MyProgress++;
                     publishProgress("" + MyProgress);
-                    SystemClock.sleep(20);
+                    SystemClock.sleep(50);
                 }
 
                 if (!dbHandler.isEmpty()) {
